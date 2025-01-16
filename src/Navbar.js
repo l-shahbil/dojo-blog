@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const Navbar = () => {
-    return ( 
+    return (
         <div className="navbar">
             <h1>The Dojo Blog</h1>
             <div className="links">
-                <a href="/">Home</a>
-                <a href="/Create" style={{
-                    color:'white',
+                <Link to="/">Home</Link>
+                <Link to="/Create" style={{
+                    color: 'white',
                     backgroundColor: '#f1356d',
-                    borderRadius:'8px'
-                }}>New Blog</a>
+                    borderRadius: '8px'
+                }}>New Blog</Link>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default Navbar;
