@@ -5,9 +5,9 @@ const useFetch = (url) => {
     const [isPending, setPending] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
+    useEffect(( ) => {
         const abortController = new AbortController();
-        setTimeout(() => {
+
             fetch(url, { signal: abortController.signal })
                 .then((res) => {
                     //This For Endpoint Error
@@ -23,15 +23,16 @@ const useFetch = (url) => {
                 //This for Connection server Error
                 .catch((error) => {
                     if (error.name === "AbortError") {
-                        console.log("Fetch Error");
+                        console.log("Fetch aborted due to component unmount or URL change");                    
                     }
                     else {
                         setPending(false);
                         setError(error.message);
                     }
                 });
-        }, 1000);
-        return () => abortController.abort();
+
+        return () => {
+            abortController.abort()};
     }, [url]);
     return { data, isPending, error };
 }

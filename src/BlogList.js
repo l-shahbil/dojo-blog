@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const BlogList = ({ blogs, title, handleDelte }) => {
+const BlogList = ({ blogs, title }) => {
 
     return (
         <div className="blog-list">
