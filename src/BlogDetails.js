@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetch from "./useFetch";
 import useDeleteBlog from "./useDeleteBlog";
+import API_BASE_URL from "./config";
 
 const BlogDetails = () => {
     const {id} = useParams();
-    const {data:blog, isPending,error} = useFetch('http://localhost:8000/blogs/'+id);
+    const {data:blog, isPending,error} = useFetch(API_BASE_URL +id);
     const {deleteBlog} = useDeleteBlog();
 
 
     const handleClick = ()=>{
-        deleteBlog('http://localhost:8000/blogs/'+ blog.id);
+        deleteBlog(API_BASE_URL + blog.id);
     }
 
     return (
